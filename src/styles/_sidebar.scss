@@ -1,0 +1,11 @@
+.sidebar {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  width: 40%;
+  z-index: 9999;
+  height: 100vh;
+  background-color: #fcfcfc;
+}
