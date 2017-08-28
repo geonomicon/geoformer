@@ -1,14 +1,12 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { IndraProvider } from 'indra'
 import L from 'leaflet'
 import indraStore from '../store/indrastore'
 import PT from 'prop-types'
 
-class LeafletMap extends Component {
+class LeafletMap extends PureComponent {
   static propTypes = {
-    children: PT.node,
-    onBoundsChange: PT.func,
-    bounds: PT.object
+    children: PT.node
   }
 
   state = { map: null }
@@ -18,10 +16,6 @@ class LeafletMap extends Component {
       center: [51.505, -0.09],
       zoom: 8
     })
-
-    if (this.props.bounds) this.map.fitBounds(this.props.bounds)
-
-    this.map.on('movestart', _ => this.props.onBoundsChange(this.map.getBounds()))
 
     this.setState({
       map: this.map
@@ -34,7 +28,6 @@ class LeafletMap extends Component {
     this.setState({
       map: null
     })
-
     indraStore.setIndraStore({ map:null })
   }
 

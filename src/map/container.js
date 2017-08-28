@@ -15,11 +15,12 @@ import MainComponent from './main'
 
 const mapDispatchToProps = dispatch => ({
   showNotifier: (value = 1) => dispatch(actionSpreader('SHOWTOAST', { content: 'Hello this is Shinobi' })),
-  onBoundsChange: (bounds) => dispatch(actionSpreader('BOUNDSCHANGE', { bounds }))
+  onBoundsChange: (bounds) => dispatch(actionSpreader('BOUNDSCHANGE', { bounds })),
+  onCodeChange: (geojson) => dispatch(actionSpreader('CODECHANGE', { geojson }))
 })
 
 const mapStateToProps = (state) => ({
-  ...pick(['bounds'], state.map)
+  ...pick(['bounds', 'geojson'], state.map)
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

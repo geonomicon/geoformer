@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
 import './styles/main.scss'
 import '../node_modules/leaflet/dist/leaflet.css'
+import './normalize.css'
 
 // Store Initialization
 // ------------------------------------
