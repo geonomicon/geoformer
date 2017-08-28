@@ -1,5 +1,5 @@
 import reducer from '../futils/reducer'
-
+import initGeojson from './initialstate'
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -20,7 +20,7 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 const initialState = {
   bounds: null,
-  geojson: '{\n}',
+  geojson: initGeojson.toString(),
   infoVis: true,
   codeVis: false
 }
