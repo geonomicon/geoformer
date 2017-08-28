@@ -4,7 +4,7 @@ import AceEditor from 'react-ace'
 import brace from 'brace' //eslint-disable-line
 
 import 'brace/mode/javascript'
-import 'brace/theme/monokai'
+import 'brace/theme/terminal'
 
 class Sidebar extends Component {
   render () {
@@ -17,17 +17,18 @@ class Sidebar extends Component {
       </button>
       {this.props.codeVis && <div className='code-container'>
         <div className='editor-intro' onClick={_ => this.props.onClick()}>
-          <span>Type Geojson Here to view on Map</span>
+          <span>Edit Geojson here to view Realtime changes</span>
         </div>
         <AceEditor
           mode='javascript'
-          theme='monokai'
+          theme='terminal'
           width='100%'
           height='520px'
           onChange={this.props.changeEmitter}
           name='UNIQUE_ID_OF_DIV'
           value={this.props.value}
           className='sidebar'
+          showGutter={false}
           editorProps={{ $blockScrolling: true }}
           setOptions={{
             autoScrollEditorIntoView: true,
