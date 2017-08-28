@@ -13,33 +13,36 @@ class GeojsonLayer extends Component {
   componentDidMount () {
     const { indraStore, geojson } = this.props
     const { map } = indraStore.getIndraStore()
-    try {
-      this.geojsonLayer = L.geoJSON(JSON.parse(geojson)).addTo(map)
-      this.props.changeBounds(this.geojsonLayer.getBounds())
-    } catch (e) {
-      console.log('Unable to draw')
-    }
+    this.createGeojsonLayer(geojson, map)
   }
 
   shouldComponentUpdate (nextprops) {
     return !!nextprops.geojson && JSON.stringify(nextprops.geojson) !== JSON.stringify(this.props.geojson)
   }
 
-  componentWillUnmount () {
-    this.geojsonLayer && this.geojsonLayer.remove()
-  }
-
   componentWillUpdate (nextprops) {
     const { indraStore, geojson } = nextprops
     const { map } = indraStore.getIndraStore()
-    this.geojsonLayer && this.geojsonLayer.remove()
-    this.geojson = null
+    this.destroyGeojsonLayer()
+    this.createGeojsonLayer(geojson, map)
+  }
+
+  componentWillUnmount () {
+    this.destroyGeojsonLayer()
+  }
+
+  createGeojsonLayer (geojson, map) {
     try {
       this.geojsonLayer = L.geoJSON(JSON.parse(geojson)).addTo(map)
       this.props.changeBounds(this.geojsonLayer.getBounds())
     } catch (e) {
       console.log('Unable to draw')
     }
+  }
+
+  destroyGeojsonLayer () {
+    this.geojsonLayer && this.geojsonLayer.remove()
+    this.geojson = null
   }
 
   render () {
