@@ -3,12 +3,12 @@ import { delay } from 'redux-saga'
 import actionSpreader from '../utils/actionspreader'
 
 export function * asyncCounter () {
-  yield call(delay, 2000)
-  yield put(actionSpreader('HIDETOAST'))
+  yield call(delay, 5000)
+  yield put(actionSpreader('HIDEINFO'))
 }
 
 export function * rootSaga () {
-  yield takeLatest('SHOWTOAST', asyncCounter)
+  yield takeLatest('STARTING', asyncCounter)
 }
 
 export default rootSaga

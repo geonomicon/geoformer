@@ -1,26 +1,101 @@
-.code-container{
+.code-panel {
   position: absolute;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   top: 0;
-  margin: 20px;
-  background-color: black;
-  width: 50%;
-  z-index: 999;
   right: 0;
-  max-width: 720px;
-  align-items: flex-start;
-  justify-content: flex-start;
+  margin: 20px;
+  z-index: 999;
 
-  .editor-intro{
-    font-size: 18px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: bold;
+  .glyph-button {
+    border: 0;
+    height: 52px;
+    width: 52px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: black;
     color: #fcfcfc;
-    padding: 10px;
+    font-size: 30px;
+    margin-bottom: 3px;
+
+    &:focus {
+      outline: none;
+    }
   }
 
-  .sidebar{
-    resize: none;
+  .code-container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    width: 620px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .editor-intro {
+      font-size: 18px;
+      width: 100%;
+      color: #fcfcfc;
+      padding: 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.info-panel {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  align-items: flex-start;
+  margin: 40px;
+  flex-direction: column;
+
+  .info-button {
+    border: 0;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: black;
+    color: #fcfcfc;
+    font-size: 18px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .info-text {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: 72px;
+    min-width: 270px;
+    background: black;
+    color: #fcfcfc;
+    margin-bottom: 2px;
+    padding: 10px;
+
+    .head-text {
+      font-size: 20px;
+      padding-bottom: 5px;
+    }
+
+    .body-text {
+      font-size: 14px;
+    }
   }
 }

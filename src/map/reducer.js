@@ -9,7 +9,10 @@ import reducer from '../futils/reducer'
 // ------------------------------------
 const ACTION_HANDLERS = {
   BOUNDSCHANGE:(s, a) => ({ ...s, bounds:a.payload.bounds }),
-  CODECHANGE: (s, a) => ({ ...s, geojson: a.payload.geojson })
+  CODECHANGE: (s, a) => ({ ...s, geojson: a.payload.geojson }),
+  TOGGLEINFO: (s, a) => ({ ...s, infoVis: !s.infoVis }),
+  TOGGLECODE: (s, a) => ({ ...s, codeVis: !s.codeVis }),
+  HIDEINFO: (s, a) => ({ ...s, infoVis: false })
 }
 
 // ------------------------------------
@@ -17,7 +20,9 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 const initialState = {
   bounds: null,
-  geojson: '{\n}'
+  geojson: '{\n}',
+  infoVis: true,
+  codeVis: false
 }
 
 export default reducer(initialState, ACTION_HANDLERS)
